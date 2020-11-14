@@ -60,7 +60,14 @@ window.onload = function () {
     }
 
     setInterval(function () {
-      moveDuck(duck);
+      let rand = Math.floor(Math.random() * 100);
+      if (rand < 50) {
+        duck.style.transform = 'scale(-1,1)';
+        moveDuck(duck);
+      } else {
+        duck.style.transform = 'scale(1,1)';
+        moveDuck(duck);
+      }
     }, 1000);
 
     randomPosition(duck);
@@ -73,7 +80,7 @@ window.onload = function () {
         let allDucks = document.querySelectorAll('.duck');
         console.log(allDucks.length);
         if (allDucks.length === 1) {
-          alert('Bam! All ducks gone. You win!');
+          alert('Boom! That was the last one. You win!');
         }
       };
       checkForWinner();
